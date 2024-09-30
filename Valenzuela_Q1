@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Enrollment {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner input = new Scanner(System.in);
+
+        // Prompt the user to enter the student's name
+        System.out.print("Enter student's name: ");
+        String studentName = input.nextLine();
+        
+        // Prompt the user to enter the course name
+        System.out.print("Enter course name: ");
+        String course = input.nextLine();
+        
+        // Prompt the user to enter the course code
+        System.out.print("Enter course code: ");
+        String courseCode = input.nextLine();
+        
+        // Ask the user for the number of units (maximum allowed is 10)
+        System.out.print("Enter number of units (max 10): ");
+        int numUnits = input.nextInt();
+        
+        // Check if the number of units exceeds the maximum allowed
+        if (numUnits > 10) {
+            System.out.println("The number of units cannot exceed 10.");
+            return;  // Stop the program if the number of units is too large
+        }
+        
+        // Set the fee per unit and calculate the total enrollment fee
+        int feePerUnit = 1000;  // Fee per unit is 1000
+        int totalFee = numUnits * feePerUnit;  // Calculate total fee based on units
+        
+        // Display the student's name and the total enrollment fee
+        System.out.println("Student's Name: " + studentName);
+        System.out.println("Total Enrollment Fee: " + totalFee);
+        
+        // Prompt the user to enter the payment amount
+        System.out.print("Enter payment amount: ");
+        int payment = input.nextInt();
+        
+        // Check if the payment is equal to the total fee
+        if (payment == totalFee) {
+            System.out.println("Fully Paid");  // Display message if payment is complete
+        } else if (payment < totalFee) {
+            System.out.println("Partial Payment of " + payment);  // Display partial payment amount if not fully paid
+        }
+    }
+}
